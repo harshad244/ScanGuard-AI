@@ -118,6 +118,14 @@ body {
   font-size: 1.35rem;
 }
 
+.developer-avatar {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-light);
+}
+
 /* ==========================================
    CARDS & KPI STATS
    ========================================== */
