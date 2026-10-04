@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScanGuard AI — Phishing URL & Scam Message Detection</title>
+  <meta name="description" content="Phishing URL & Scam Message Detectio">
+    <meta name="keywords" content="Security">
+    <meta name="subject" content="Software">
+    <meta name="copyright" content="HarshTech Organization">
+    <meta name="language" content="English">
+    <meta name="robots" content="index,follow">
+    <meta name="revised" content="sunday,octomber 4th,2026,8:45 pm">
+    <meta name="abstract" content="HarshTech  specializes in custom Software Development and Web design solutions.">
+    <meta name="topic" content="Software Development">
+    <meta name="summary" content="HarshTech Provides innovative technology solutions for business">
+    <meta name="classification" content="business">
+    <meta name="author" content="Harshad Teli">
+    <meta name="author" content="harshadteli697@gmail.com">
+    <meta name="designer" content="Harshad Teli">
+    <meta name="reply-to" content="harshtech417@gmail.com">
+    <meta name="owner" content="Harshad Teli">
+    <meta name="directory" content="Technology">
+    <meta name="pagename" content="HarshTech Organization feedback form">
+    <meta name="category" content="Web Development">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+
+  <!-- Open Graph Tags (Whatsapp,Facebook,twitter,Instagram,Linkdin) -->
+    <meta property="og:title" content="ScanGuard AI">
+    <meta property="og:description" content="Phishing URL & Scam Message Detectio">
+    <meta property="og:image" content="https://media.istockphoto.com/id/953520974/vector/tick-mark-approved-icon-shield-vector-on-white-background.jpg?s=612x612&w=0&k=20&c=lalLRIXMNvWP6JuqHjoz_h0q-iQXSgOgI5pztVZ6SN8=">
+    <meta property="og:url" content="#">
+  <!-- For the twitter Card -->
+   <meta name="twitter:Card" content="summary_large_image">
+   <meta name="twitter:title" content="Scanguard">
+   <meta name="twitter:description" content="Phishing URL & Scam Message Detectio">
+ <meta name="twitter:image" content="https://media.istockphoto.com/id/953520974/vector/tick-mark-approved-icon-shield-vector-on-white-background.jpg?s=612x612&w=0&k=20&c=lalLRIXMNvWP6JuqHjoz_h0q-iQXSgOgI5pztVZ6SN8=">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       TOP NAVIGATION BAR
+       ========================================== -->
+  <nav class="navbar navbar-expand-lg app-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="#home">
+        <i class="fa-solid fa-shield-halved text-primary"></i>
+        <span>ScanGuard <span class="badge bg-primary text-white fs-6">AI</span></span>
+      </a>
+
+      <!-- GAS Live Status Pill -->
+      <div class="d-none d-md-block ms-2">
+        <span class="badge bg-warning-subtle text-warning border border-warning-subtle gas-status-pill cursor-pointer" 
+              title="Click to configure Google Apps Script Web App URL">
+          <i class="fa-solid fa-microchip me-1"></i> Client Engine (Connect GAS)
+        </span>
+      </div>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <ul class="navbar-nav mx-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="#home"><i class="fa-solid fa-house me-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#url-scanner"><i class="fa-solid fa-link me-1"></i> URL Scanner</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#message-scanner"><i class="fa-solid fa-comment-dots me-1"></i> Message Scanner</a></li>
+          <li class="nav-item auth-only d-none"><a class="nav-link nav-link-custom" href="#dashboard"><i class="fa-solid fa-gauge-high me-1"></i> Dashboard</a></li>
+          <li class="nav-item auth-only d-none"><a class="nav-link nav-link-custom" href="#history"><i class="fa-solid fa-clock-rotate-left me-1"></i> History</a></li>
+          <li class="nav-item admin-only d-none"><a class="nav-link nav-link-custom text-danger" href="#admin"><i class="fa-solid fa-user-shield me-1"></i> Admin</a></li>
+        </ul>
+
+        <!-- Right Side Auth Elements -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- Guest Links -->
+          <div class="guest-only d-flex gap-2">
+            <button class="btn btn-outline-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Login
+            </button>
+            <button class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#registerModal">
+              <i class="fa-solid fa-user-plus me-1"></i> Register (OTP)
+            </button>
+          </div>
+
+          <!-- Logged In User Dropdown -->
+          <div class="auth-only d-none dropdown">
+            <button class="btn btn-light btn-sm dropdown-toggle border d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+              <div class="avatar-sm bg-primary text-white rounded-circle d-grid place-items-center" style="width: 26px; height: 26px; font-size: 12px;">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <span class="user-name-display fw-semibold small">User</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><h6 class="dropdown-header user-email-display small text-muted">user@example.com</h6></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#profile"><i class="fa-solid fa-id-card me-2 text-muted"></i> My Profile</a></li>
+              <li><a class="dropdown-item" href="#dashboard"><i class="fa-solid fa-chart-line me-2 text-muted"></i> User Dashboard</a></li>
+              <li><a class="dropdown-item" href="#history"><i class="fa-solid fa-list-check me-2 text-muted"></i> Scan History</a></li>
+              <li><a class="dropdown-item cursor-pointer" data-bs-toggle="modal" data-bs-target="#gasConfigModal"><i class="fa-solid fa-gear me-2 text-muted"></i> GAS Endpoint</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger btn-logout cursor-pointer" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       MAIN VIEW CONTAINER (Single Page Router)
+       ========================================== -->
+  <main class="container py-4 flex-grow-1">
+
+    <!-- ================= VIEW 1: HOME / LANDING ================= -->
+    <section id="view-home" class="app-view">
+      <!-- Hero Banner -->
+      <div class="hero-banner p-4 p-md-5 mb-5">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> AI & Machine Learning Threat Defense
+            </span>
+            <h1 class="display-5 fw-bold mb-3">Detect Phishing URLs & Scam Messages in Real Time</h1>
+            <p class="lead opacity-90 mb-4">
+              Protect yourself from fraudulent websites, credential theft, fake banking alerts, and lottery scams with our multi-layered AI heuristic and threat intelligence engine.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#url-scanner" class="btn btn-light btn-lg text-primary fw-semibold px-4">
+                <i class="fa-solid fa-link me-2"></i> Scan a URL
+              </a>
+              <a href="#message-scanner" class="btn btn-outline-light btn-lg px-4">
+                <i class="fa-solid fa-comment-dots me-2"></i> Check Message
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center">
+            <div class="radar-scanner bg-primary bg-opacity-25" style="width: 160px; height: 160px;">
+              <i class="fa-solid fa-shield-virus fa-4x text-white"></i>
+            </div>
+            <p class="text-white-50 small mt-3 mb-0"><i class="fa-solid fa-lock me-1"></i> URLs and messages analyzed safely in sandbox</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="feature-box h-100">
+            <div class="feature-icon-circle bg-primary-light text-primary mb-3">
+              <i class="fa-solid fa-link"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-2">Phishing URL Analysis</h3>
+            <p class="text-muted small mb-0">
+              Evaluates 15+ lexical vectors: typosquatting, subdomain abuse, raw IP hostnames, URL shorteners, and deceptive paths.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box h-100">
+            <div class="feature-icon-circle bg-success-subtle text-success mb-3">
+              <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-2">Email OTP Verification</h3>
+            <p class="text-muted small mb-0">
+              Secure registration and login protected by one-time passwords sent straight to your email using Google Apps Script Gmail integration.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box h-100">
+            <div class="feature-icon-circle bg-warning-subtle text-warning mb-3">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="h5 fw-bold mb-2">NLP Scam Detection</h3>
+            <p class="text-muted small mb-0">
+              Detects high-urgency threats, fake banking alerts, job scams, crypto giveaway traps, and credential theft vectors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- How it Works Steps -->
+      <div class="card-custom p-4 p-md-5 mb-4">
+        <h2 class="h4 fw-bold text-center mb-4">How ScanGuard AI Works</h2>
+        <div class="row g-4 text-center">
+          <div class="col-6 col-md-3">
+            <div class="bg-light rounded-circle mx-auto d-grid place-items-center mb-3" style="width: 54px; height: 54px; font-weight: 800; font-size: 1.25rem;">1</div>
+            <h4 class="h6 fw-bold">Input Submission</h4>
+            <p class="text-muted small">Enter any suspicious web link or message text.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="bg-light rounded-circle mx-auto d-grid place-items-center mb-3" style="width: 54px; height: 54px; font-weight: 800; font-size: 1.25rem;">2</div>
+            <h4 class="h6 fw-bold">Feature Extraction</h4>
+            <p class="text-muted small">Lexical, syntactic, and NLP pattern analysis.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="bg-light rounded-circle mx-auto d-grid place-items-center mb-3" style="width: 54px; height: 54px; font-weight: 800; font-size: 1.25rem;">3</div>
+            <h4 class="h6 fw-bold">AI Threat Scoring</h4>
+            <p class="text-muted small">Calibrated 0-100 risk score and danger levels.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="bg-light rounded-circle mx-auto d-grid place-items-center mb-3" style="width: 54px; height: 54px; font-weight: 800; font-size: 1.25rem;">4</div>
+            <h4 class="h6 fw-bold">Decision & Advice</h4>
+            <p class="text-muted small">Clear verdict and step-by-step mitigation advice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 2: URL SCANNER ================= -->
+    <section id="view-url-scanner" class="app-view d-none">
+      <div class="scanner-container">
+        <div class="scanner-card mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div>
+              <h1 class="h4 fw-bold mb-1"><i class="fa-solid fa-link text-primary me-2"></i>Phishing URL Scanner</h1>
+              <p class="text-muted small mb-0">Analyze web links safely without opening or downloading malicious scripts.</p>
+            </div>
+            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">
+              <i class="fa-solid fa-robot me-1"></i> AI Enabled
+            </span>
+          </div>
+
+          <!-- Scanner Form -->
+          <form id="urlScannerForm">
+            <div class="mb-3">
+              <label for="targetUrlInput" class="form-label fw-semibold">Target URL to Inspect</label>
+              <div class="input-group input-group-lg shadow-sm">
+                <span class="input-group-text bg-light"><i class="fa-solid fa-globe text-muted"></i></span>
+                <input type="text" class="form-control" id="targetUrlInput" placeholder="e.g. https://secure-bank-login.com/verify" required>
+                <button type="submit" class="btn btn-primary px-4 fw-semibold" id="urlScanSubmitBtn">
+                  <i class="fa-solid fa-shield-halved me-1"></i> Scan URL
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick sample buttons -->
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <span class="small text-muted me-1">Try samples:</span>
+              <button type="button" class="sample-chip sample-url-btn" data-sample="https://www.google.com">Safe Website</button>
+              <button type="button" class="sample-chip sample-url-btn" data-sample="http://secure-login-paypa1-update.com/verify-account">Phishing Spoof</button>
+              <button type="button" class="sample-chip sample-url-btn" data-sample="http://192.168.1.104/bank-kyc-update">Raw IP Host</button>
+              <button type="button" class="sample-chip sample-url-btn" data-sample="http://bit.ly/free-reward-claim-2026">Shortened Link</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- URL Scanner Loading Card -->
+        <div id="urlScanLoadingCard" class="card-custom p-5 text-center d-none mb-4">
+          <div class="radar-scanner">
+            <i class="fa-solid fa-shield-halved fa-2x text-primary"></i>
+          </div>
+          <h4 class="h5 fw-bold mb-2">Analyzing Threat Signals...</h4>
+          <p class="text-muted small mb-3" id="urlScanProgressText">Extracting lexical & structural security features...</p>
+          <div class="progress risk-progress-bar mx-auto" style="max-width: 380px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" id="urlScanProgressBar" style="width: 15%;"></div>
+          </div>
+        </div>
+
+        <!-- URL Scanner Result Card -->
+        <div id="urlScanResultCard" class="result-card d-none mb-4">
+          <div class="result-card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div>
+              <p class="text-uppercase text-muted small fw-bold mb-1">Detection Verdict</p>
+              <h2 id="urlResultVerdictTitle" class="h3 fw-bold mb-0">Verified Safe</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span id="urlResultVerdictBadge" class="badge bg-success fs-6 px-3 py-2">SAFE</span>
+              <span id="urlResultLevelBadge" class="badge bg-light text-dark border fs-6 px-3 py-2">Risk: LOW</span>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <!-- Risk Score Meter -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="fw-semibold small">Threat Risk Score</span>
+                <span id="urlResultScoreNumber" class="fw-bold fs-5">15/100</span>
+              </div>
+              <div class="progress risk-progress-bar">
+                <div id="urlResultScoreMeter" class="progress-bar bg-success" style="width: 15%;"></div>
+              </div>
+            </div>
+
+            <!-- Input Preview -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold small text-muted">Analyzed URL</label>
+              <div id="urlResultInputPreview" class="input-preview-box">https://example.com</div>
+            </div>
+
+            <!-- Detection Breakdown -->
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <h3 class="h6 fw-bold mb-2"><i class="fa-solid fa-list-check text-primary me-2"></i>Why was this detected?</h3>
+                <ul id="urlResultReasonsList" class="small ps-3 mb-0 text-muted">
+                  <li>No immediate suspicious anomalies found.</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h6 fw-bold mb-2"><i class="fa-solid fa-tags text-primary me-2"></i>Security Indicators</h3>
+                <div id="urlResultIndicatorsBox" class="d-flex flex-wrap gap-1">
+                  <!-- Indicator chips will be inserted here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Security Recommendation Box -->
+            <div class="alert alert-light border recommendation-box mb-4">
+              <div class="d-flex align-items-start gap-2">
+                <i class="fa-solid fa-shield-heart text-primary fs-5 mt-1"></i>
+                <div>
+                  <strong class="d-block mb-1">Security Recommendation:</strong>
+                  <span id="urlResultRecommendationText" class="small text-muted">
+                    Always practice safe browsing habits.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 border-top gap-2">
+              <span id="urlResultScanMeta" class="small text-muted">Scan ID: #scn_123456</span>
+              <div class="d-flex gap-2">
+                <a href="#history" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-clock-rotate-left me-1"></i> View in History</a>
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                  <i class="fa-solid fa-rotate-left me-1"></i> Scan Another
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 3: MESSAGE SCANNER ================= -->
+    <section id="view-message-scanner" class="app-view d-none">
+      <div class="scanner-container">
+        <div class="scanner-card mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div>
+              <h1 class="h4 fw-bold mb-1"><i class="fa-solid fa-comment-dots text-primary me-2"></i>Scam Message Detector</h1>
+              <p class="text-muted small mb-0">Detect fraudulent SMS, WhatsApp alerts, phishing emails, and social engineering text.</p>
+            </div>
+            <span class="badge bg-warning-subtle text-warning border border-warning-subtle px-3 py-2">
+              <i class="fa-solid fa-microchip me-1"></i> NLP Engine
+            </span>
+          </div>
+
+          <!-- Message Scanner Form -->
+          <form id="messageScannerForm">
+            <div class="row g-3 mb-3">
+              <div class="col-md-8">
+                <label for="targetMessageInput" class="form-label fw-semibold">Message Content</label>
+              </div>
+              <div class="col-md-4">
+                <select class="form-select form-select-sm" id="messageTypeSelect">
+                  <option value="general">General SMS / Chat</option>
+                  <option value="bank">Banking / KYC Alert</option>
+                  <option value="job">Job Offer / Work-from-Home</option>
+                  <option value="lottery">Prize / Lottery / Giveaway</option>
+                  <option value="crypto">Crypto / Investment</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <textarea class="form-control" id="targetMessageInput" rows="4" placeholder="Paste the suspicious SMS, WhatsApp message, or email body here..." required></textarea>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <div class="d-flex flex-wrap align-items-center gap-1">
+                <span class="small text-muted me-1">Try samples:</span>
+                <button type="button" class="sample-chip sample-msg-btn" data-type="general" data-sample="Hey Sarah, are we still meeting for lunch at 1pm today?">Normal Text</button>
+                <button type="button" class="sample-chip sample-msg-btn" data-type="bank" data-sample="URGENT: Your SBI bank account is suspended due to missing KYC. Update PAN/Aadhaar immediately at bit.ly/sbi-kyc-verify to avoid ₹10,000 fine.">Bank KYC Scam</button>
+                <button type="button" class="sample-chip sample-msg-btn" data-type="lottery" data-sample="Congratulations! You have won $1,000,000 in the International Lottery. Send your bank details and OTP to claim.">Lottery Scam</button>
+                <button type="button" class="sample-chip sample-msg-btn" data-type="job" data-sample="Part-time job offer! Earn $300 daily by liking YouTube videos. Contact @taskmanager on Telegram now.">Fake Job Offer</button>
+              </div>
+              <button type="submit" class="btn btn-primary px-4 fw-semibold" id="msgScanSubmitBtn">
+                <i class="fa-solid fa-magnifying-glass-chart me-1"></i> Analyze Text
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Message Scanner Loading Card -->
+        <div id="msgScanLoadingCard" class="card-custom p-5 text-center d-none mb-4">
+          <div class="radar-scanner">
+            <i class="fa-solid fa-comment-dots fa-2x text-primary"></i>
+          </div>
+          <h4 class="h5 fw-bold mb-2">Analyzing Message Threat Signals...</h4>
+          <p class="text-muted small mb-3" id="msgScanProgressText">Extracting message tokens and analyzing linguistic indicators...</p>
+          <div class="progress risk-progress-bar mx-auto" style="max-width: 380px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" id="msgScanProgressBar" style="width: 15%;"></div>
+          </div>
+        </div>
+
+        <!-- Message Scanner Result Card -->
+        <div id="msgScanResultCard" class="result-card d-none mb-4">
+          <div class="result-card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div>
+              <p class="text-uppercase text-muted small fw-bold mb-1">Message Threat Verdict</p>
+              <h2 id="msgResultVerdictTitle" class="h3 fw-bold mb-0">Verified Safe</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span id="msgResultVerdictBadge" class="badge bg-success fs-6 px-3 py-2">SAFE</span>
+              <span id="msgResultLevelBadge" class="badge bg-light text-dark border fs-6 px-3 py-2">Risk: LOW</span>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <!-- Risk Score Meter -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="fw-semibold small">Threat Risk Score</span>
+                <span id="msgResultScoreNumber" class="fw-bold fs-5">15/100</span>
+              </div>
+              <div class="progress risk-progress-bar">
+                <div id="msgResultScoreMeter" class="progress-bar bg-success" style="width: 15%;"></div>
+              </div>
+            </div>
+
+            <!-- Input Preview -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold small text-muted">Analyzed Message</label>
+              <div id="msgResultInputPreview" class="input-preview-box">Hello world</div>
+            </div>
+
+            <!-- Detection Breakdown -->
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <h3 class="h6 fw-bold mb-2"><i class="fa-solid fa-list-check text-primary me-2"></i>Why was this detected?</h3>
+                <ul id="msgResultReasonsList" class="small ps-3 mb-0 text-muted">
+                  <li>No immediate suspicious anomalies found.</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="h6 fw-bold mb-2"><i class="fa-solid fa-tags text-primary me-2"></i>Security Indicators</h3>
+                <div id="msgResultIndicatorsBox" class="d-flex flex-wrap gap-1">
+                  <!-- Indicator chips will be inserted here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Security Recommendation Box -->
+            <div class="alert alert-light border recommendation-box mb-4">
+              <div class="d-flex align-items-start gap-2">
+                <i class="fa-solid fa-shield-heart text-primary fs-5 mt-1"></i>
+                <div>
+                  <strong class="d-block mb-1">Security Recommendation:</strong>
+                  <span id="msgResultRecommendationText" class="small text-muted">
+                    Always practice safe digital communication habits.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 border-top gap-2">
+              <span id="msgResultScanMeta" class="small text-muted">Scan ID: #scn_123456</span>
+              <div class="d-flex gap-2">
+                <a href="#history" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-clock-rotate-left me-1"></i> View in History</a>
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                  <i class="fa-solid fa-rotate-left me-1"></i> Scan Another
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 4: USER DASHBOARD ================= -->
+    <section id="view-dashboard" class="app-view d-none">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+        <div>
+          <h1 class="h3 fw-bold mb-1">Security Dashboard</h1>
+          <p class="text-muted mb-0">Overview of threat detections and scan history metrics</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="#url-scanner" class="btn btn-primary btn-sm"><i class="fa-solid fa-link me-1"></i> Scan URL</a>
+          <a href="#message-scanner" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-comment-dots me-1"></i> Check Message</a>
+        </div>
+      </div>
+
+      <!-- KPI Stat Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3">
+          <div class="kpi-stat-card primary">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted small mb-1">Total Scans</p>
+                <h3 class="kpi-stat-number" id="dashTotalScans">0</h3>
+              </div>
+              <i class="fa-solid fa-magnifying-glass-chart fa-2x text-primary opacity-25"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="kpi-stat-card safe">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted small mb-1">Safe Results</p>
+                <h3 class="kpi-stat-number text-success" id="dashSafeScans">0</h3>
+              </div>
+              <i class="fa-solid fa-shield-check fa-2x text-success opacity-25"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="kpi-stat-card warn">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted small mb-1">Suspicious</p>
+                <h3 class="kpi-stat-number text-warning" id="dashSuspiciousScans">0</h3>
+              </div>
+              <i class="fa-solid fa-triangle-exclamation fa-2x text-warning opacity-25"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="kpi-stat-card danger">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text-muted small mb-1">Scams Detected</p>
+                <h3 class="kpi-stat-number text-danger" id="dashScamScans">0</h3>
+              </div>
+              <i class="fa-solid fa-skull-crossbones fa-2x text-danger opacity-25"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Charts -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-5">
+          <div class="card-custom p-4 h-100">
+            <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-chart-pie text-primary me-2"></i>Verdict Distribution</h3>
+            <div style="height: 240px; position: relative;">
+              <canvas id="dashDistChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card-custom p-4 h-100">
+            <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-chart-line text-primary me-2"></i>Daily Scan Trend</h3>
+            <div style="height: 240px; position: relative;">
+              <canvas id="dashActivityChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Scans Table -->
+      <div class="card-custom p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="h6 fw-bold mb-0">Recent Scans</h3>
+          <a href="#history" class="small text-primary text-decoration-none">View All History &rarr;</a>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Scan ID</th>
+                <th>Type</th>
+                <th>Preview</th>
+                <th>Result</th>
+                <th>Risk Score</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="dashRecentScansBody">
+              <!-- Loaded dynamically via dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 5: HISTORY & REPORTS ================= -->
+    <section id="view-history" class="app-view d-none">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+        <div>
+          <h1 class="h3 fw-bold mb-1">Scan History & Reports</h1>
+          <p class="text-muted mb-0">Review, filter, inspect, and export your previous threat scans</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-secondary btn-sm" id="exportCsvBtn">
+            <i class="fa-solid fa-file-csv me-1"></i> Export CSV
+          </button>
+          <button class="btn btn-outline-secondary btn-sm" id="exportJsonBtn">
+            <i class="fa-solid fa-file-code me-1"></i> Export JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="card-custom p-3 mb-4">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-4">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-light"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+              <input type="text" class="form-control" id="historySearchInput" placeholder="Search by URL, message, or ID...">
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <select class="form-select form-select-sm" id="historyTypeFilter">
+              <option value="">All Types</option>
+              <option value="url">URLs Only</option>
+              <option value="message">Messages Only</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-3">
+            <select class="form-select form-select-sm" id="historyResultFilter">
+              <option value="">All Results</option>
+              <option value="SAFE">Safe Only</option>
+              <option value="SUSPICIOUS">Suspicious Only</option>
+              <option value="SCAM">Scam / Phishing</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-3 d-flex justify-content-between align-items-center">
+            <select class="form-select form-select-sm" id="historySortFilter">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+            <span class="badge bg-light text-muted border ms-2" id="historyCountBadge">0 Records</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- History Table -->
+      <div class="card-custom p-4">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Scan ID</th>
+                <th>Type</th>
+                <th>Input Preview</th>
+                <th>Result</th>
+                <th>Risk Score</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <!-- Loaded dynamically via history.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 6: USER PROFILE ================= -->
+    <section id="view-profile" class="app-view d-none">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card-custom p-4 p-md-5">
+            <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+              <div class="avatar-lg bg-primary text-white rounded-circle d-grid place-items-center" style="width: 56px; height: 56px; font-size: 24px;">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <div>
+                <h2 class="h4 fw-bold mb-1 user-name-display">User Profile</h2>
+                <p class="text-muted small mb-0"><span class="badge bg-primary-subtle text-primary border" id="profileRole">USER</span> • Account Active</p>
+              </div>
+            </div>
+
+            <form id="profileForm">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" id="profileEmail" disabled>
+                <div class="form-text">Email address is verified and permanently linked.</div>
+              </div>
+              <div class="mb-3">
+                <label for="profileName" class="form-label fw-semibold">Display Name</label>
+                <input type="text" class="form-control" id="profileName" required>
+              </div>
+              <div class="mb-4">
+                <label for="profilePassword" class="form-label fw-semibold">Update Password (Optional)</label>
+                <input type="password" class="form-control" id="profilePassword" placeholder="Leave empty to keep current password">
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="small text-muted">Member since: <strong id="profileJoined">—</strong></span>
+                <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 7: ADMIN PANEL ================= -->
+    <section id="view-admin" class="app-view d-none">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+        <div>
+          <h1 class="h3 fw-bold mb-1"><i class="fa-solid fa-user-shield text-danger me-2"></i>Administrator Control Panel</h1>
+          <p class="text-muted mb-0">System-wide monitoring, user accounts, and AI model orchestration</p>
+        </div>
+      </div>
+
+      <!-- Admin Stat KPIs -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md">
+          <div class="kpi-stat-card"><p class="text-muted small mb-1">Total Users</p><h4 class="fw-bold mb-0" id="adminTotalUsers">0</h4></div>
+        </div>
+        <div class="col-6 col-md">
+          <div class="kpi-stat-card"><p class="text-muted small mb-1">Global Scans</p><h4 class="fw-bold mb-0" id="adminTotalScans">0</h4></div>
+        </div>
+        <div class="col-4 col-md">
+          <div class="kpi-stat-card safe"><p class="text-muted small mb-1">Safe</p><h4 class="fw-bold text-success mb-0" id="adminSafeScans">0</h4></div>
+        </div>
+        <div class="col-4 col-md">
+          <div class="kpi-stat-card warn"><p class="text-muted small mb-1">Suspicious</p><h4 class="fw-bold text-warning mb-0" id="adminSuspiciousScans">0</h4></div>
+        </div>
+        <div class="col-4 col-md">
+          <div class="kpi-stat-card danger"><p class="text-muted small mb-1">Scams Blocked</p><h4 class="fw-bold text-danger mb-0" id="adminScamScans">0</h4></div>
+        </div>
+      </div>
+
+      <!-- User Management Table -->
+      <div class="card-custom p-4 mb-4">
+        <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-users text-primary me-2"></i>User Management</h3>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Joined</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersTableBody">
+              <!-- Loaded dynamically via admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AI Engines & Model Metadata -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-7">
+          <div class="card-custom p-4 h-100">
+            <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-microchip text-primary me-2"></i>AI Threat Detection Engines</h3>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle mb-0">
+                <thead class="table-light">
+                  <tr><th>Model Name</th><th>Type</th><th>Version</th><th>Accuracy</th><th>Status</th></tr>
+                </thead>
+                <tbody id="adminModelsTableBody">
+                  <!-- Loaded via admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card-custom p-4 h-100">
+            <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-key text-primary me-2"></i>Online AI API Configuration</h3>
+            <form id="adminSettingsForm">
+              <div class="mb-3">
+                <label for="settingGeminiKey" class="form-label small fw-semibold">Google Gemini API Key (Optional)</label>
+                <input type="password" class="form-control form-control-sm" id="settingGeminiKey" placeholder="AIzaSy...">
+                <div class="form-text small">Enhances message reasoning with Gemini 1.5 Flash.</div>
+              </div>
+              <div class="mb-3">
+                <label for="settingSafeBrowsingKey" class="form-label small fw-semibold">Google Safe Browsing Key (Optional)</label>
+                <input type="password" class="form-control form-control-sm" id="settingSafeBrowsingKey" placeholder="AIzaSy...">
+                <div class="form-text small">Direct threat list lookup for malware/phishing URLs.</div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm w-100">Save AI API Settings</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Scans Audit Log -->
+      <div class="card-custom p-4">
+        <h3 class="h6 fw-bold mb-3"><i class="fa-solid fa-list-ul text-primary me-2"></i>System-Wide Scan Audit Log</h3>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Scan ID</th>
+                <th>User / Email</th>
+                <th>Type</th>
+                <th>Input Preview</th>
+                <th>Verdict</th>
+                <th>Score</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="adminScansTableBody">
+              <!-- Loaded via admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       MODALS
+       ========================================== -->
+
+  <!-- 1. REGISTER MODAL WITH EMAIL OTP -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="registerModalLabel"><i class="fa-solid fa-user-shield text-primary me-2"></i>Create Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="regAlert" class="alert d-none py-2 px-3 small"></div>
+
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="regName" class="form-label fw-semibold small">Full Name</label>
+              <input type="text" class="form-control" id="regName" placeholder="Name Here" required>
+            </div>
+
+            <!-- Email + Send OTP button -->
+            <div class="mb-3">
+              <label for="regEmail" class="form-label fw-semibold small">Email Address</label>
+              <div class="input-group">
+                <input type="email" class="form-control" id="regEmail" placeholder="you@example.com" required>
+                <button type="button" class="btn btn-outline-primary fw-semibold" id="sendOtpBtn">
+                  <i class="fa-solid fa-paper-plane me-1"></i> Send OTP
+                </button>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <span class="form-text small text-muted">A 6-digit code will be emailed to you.</span>
+                <span id="otpTimerText" class="small text-primary fw-bold"></span>
+              </div>
+            </div>
+
+            <!-- 6-digit OTP Input -->
+            <div class="mb-3">
+              <label for="regOtp" class="form-label fw-semibold small">Enter 6-Digit OTP Code</label>
+              <input type="text" class="form-control form-control-lg text-center fw-bold letter-spacing-2" id="regOtp" placeholder="••••••" maxlength="6" required>
+            </div>
+
+            <div class="row g-2 mb-4">
+              <div class="col-6">
+                <label for="regPassword" class="form-label fw-semibold small">Password</label>
+                <input type="password" class="form-control" id="regPassword" placeholder="Min 8 chars" required minlength="8">
+              </div>
+              <div class="col-6">
+                <label for="regConfirmPassword" class="form-label fw-semibold small">Confirm Password</label>
+                <input type="password" class="form-control" id="regConfirmPassword" placeholder="Repeat password" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold" id="regSubmitBtn">
+              Verify OTP & Create Account
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer border-0 pt-0 justify-content-center">
+          <p class="small text-muted mb-0">Already have an account? <a href="#" data-bs-target="#loginModal" data-bs-toggle="modal">Login here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LOGIN MODAL -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="loginModalLabel"><i class="fa-solid fa-lock text-primary me-2"></i>Account Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="loginAlert" class="alert d-none py-2 px-3 small"></div>
+
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label fw-semibold small">Email Address</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" required>
+            </div>
+            <div class="mb-4">
+              <label for="loginPassword" class="form-label fw-semibold small">Password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold" id="loginSubmitBtn">
+              Login to ScanGuard
+            </button>
+          </form>
+
+          <!-- <div class="alert alert-light border small mt-3 mb-0">
+            <strong><i class="fa-solid fa-info-circle me-1 text-primary"></i> Demo Admin Credentials:</strong><br>
+            Email: <code>admin@scanguard.ai</code> | Password: <code>Admin@1234</code>
+          </div> -->
+        </div>
+        <div class="modal-footer border-0 pt-0 justify-content-center">
+          <p class="small text-muted mb-0">Don't have an account? <a href="#" data-bs-target="#registerModal" data-bs-toggle="modal">Register with Email OTP</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. GAS DEPLOYMENT URL CONFIG MODAL -->
+  <div class="modal fade" id="gasConfigModal" tabindex="-1" aria-labelledby="gasConfigModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="gasConfigModalLabel"><i class="fa-brands fa-google text-primary me-2"></i>Google Apps Script Web App Setup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="small text-muted">
+            Connect your frontend to your deployed Google Apps Script (GAS) Web App to enable live Gmail OTP email delivery, persistent Google Sheets database, and cloud AI scanning.
+          </p>
+
+          <form id="gasConfigForm">
+            <div class="mb-3">
+              <label for="gasUrlInput" class="form-label fw-semibold small">Deployed GAS Web App URL</label>
+              <input type="url" class="form-control font-monospace small" id="gasUrlInput" placeholder="https://script.google.com/macros/s/.../exec" required>
+              <div class="form-text small">Paste the Web App URL obtained after clicking <strong>Deploy &gt; New deployment</strong> in GAS.</div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary w-100 fw-semibold">Save & Connect GAS</button>
+            </div>
+          </form>
+
+          <div class="alert alert-light border small mt-3 mb-0">
+            <strong class="d-block mb-1"><i class="fa-solid fa-book-open me-1 text-primary"></i> Quick Deployment Steps:</strong>
+            1. Open <a href="https://script.google.com" target="_blank" class="fw-semibold">script.google.com</a><br>
+            2. Copy code from <code>gas/Code.gs</code> and paste it.<br>
+            3. Click <strong>Deploy &gt; New deployment &gt; Web app</strong>.<br>
+            4. Set <em>Execute as: Me</em> & <em>Access: Anyone</em>, then paste the URL above!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SCAN DETAIL INSPECTION MODAL -->
+  <div class="modal fade" id="historyDetailModal" tabindex="-1" aria-labelledby="historyDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="historyDetailModalLabel">Scan Record Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-3 mb-3">
+            <div class="col-sm-4">
+              <span class="text-muted small">Scan ID</span>
+              <div class="fw-bold" id="modalScanId">#scn_123</div>
+            </div>
+            <div class="col-sm-4">
+              <span class="text-muted small">Type & Date</span>
+              <div class="fw-semibold" id="modalScanType">URL</div>
+              <div class="small text-muted" id="modalScanDate">—</div>
+            </div>
+            <div class="col-sm-4">
+              <span class="text-muted small">Verdict & Score</span>
+              <div>
+                <span class="badge bg-success" id="modalScanVerdict">SAFE</span>
+                <span class="ms-1 fw-bold" id="modalScanScore">15/100</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Input Content</label>
+            <div class="input-preview-box" id="modalScanInput"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold small text-muted">Detection Reasons</label>
+            <ul class="small ps-3 text-muted mb-0" id="modalScanReasons"></ul>
+          </div>
+
+          <div>
+            <label class="form-label fw-semibold small text-muted">Triggered Indicators</label>
+            <div id="modalScanIndicators" class="d-flex flex-wrap gap-1"></div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOAST CONTAINER
+       ========================================== -->
+  <div class="toast-container-custom" id="toastContainer"></div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="bg-white border-top py-4 mt-auto">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-primary"></i>
+        <span class="small fw-semibold text-dark">ScanGuard AI Security</span>
+       
+      <div class="text-muted small">
+       <marquee>
+         &copy; 2026 ScanGuard AI. All rights reserved.
+       </marquee>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS & SPA ROUTER
+       ========================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Application Logic Modules -->
+  <script src="js/ai_engine.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/admin.js"></script>
+
+  <!-- Router and App Bootstrapper -->
+  <script>
+    // Simple SPA Hash Router
+    function handleRoute() {
+      const hash = window.location.hash || "#home";
+      const route = hash.replace("#", "");
+
+      // Hide all views
+      document.querySelectorAll(".app-view").forEach(el => el.classList.add("d-none"));
+
+      // Update active nav links
+      document.querySelectorAll(".nav-link-custom").forEach(link => {
+        if (link.getAttribute("href") === hash) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+
+      const targetView = document.getElementById(`view-${route}`);
+      if (targetView) {
+        targetView.classList.remove("d-none");
+      } else {
+        document.getElementById("view-home")?.classList.remove("d-none");
+      }
+
+      // View-specific initializers
+      if (route === "dashboard") {
+        Dashboard.loadDashboard();
+      } else if (route === "history") {
+        History.loadHistory();
+      } else if (route === "admin") {
+        Admin.loadAdminData();
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Toast helper function
+    function showToast(message, type = "info", duration = 4000) {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+
+      const toastEl = document.createElement("div");
+      toastEl.className = `custom-toast p-3 mb-2 d-flex align-items-center justify-content-between border-start border-4 border-${type}`;
+      toastEl.innerHTML = `
+        <div class="small fw-medium me-3 text-dark">${message}</div>
+        <button type="button" class="btn-close btn-sm" aria-label="Close"></button>
+      `;
+
+      toastEl.querySelector(".btn-close").onclick = () => toastEl.remove();
+      container.appendChild(toastEl);
+
+      setTimeout(() => {
+        toastEl.remove();
+      }, duration);
+    }
+
+    // Bootstrapping
+    document.addEventListener("DOMContentLoaded", () => {
+      Auth.init();
+      Scanner.init();
+      History.init();
+      Admin.init();
+
+      window.addEventListener("hashchange", handleRoute);
+      handleRoute();
+    });
+  </script>
+</body>
+</html>
