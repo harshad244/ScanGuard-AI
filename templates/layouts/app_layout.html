@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body_class %}app-shell{% endblock %}
+{% block layout_class %}container-fluid px-0{% endblock %}
+{% block navbar %}{% endblock %}
+{% block content %}
+<div class="app-layout">
+  {% block sidebar %}{% endblock %}
+  <main class="app-main">
+    <div class="container-fluid py-4 px-3 px-lg-4">
+      {% block app_content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}

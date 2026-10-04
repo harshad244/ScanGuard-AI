@@ -1,0 +1,21 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block app_content %}
+<h1 class="h3 fw-semibold mb-4">Profile</h1>
+<div class="row g-3">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h6 fw-semibold mb-3">Account Information</h2>
+        <dl class="row mb-0">
+          <dt class="col-sm-4 text-muted">Name</dt><dd class="col-sm-8">{{ user.name }}</dd>
+          <dt class="col-sm-4 text-muted">Email</dt><dd class="col-sm-8">{{ user.email }}</dd>
+          <dt class="col-sm-4 text-muted">Role</dt><dd class="col-sm-8 text-capitalize">{{ user.role }}</dd>
+          <dt class="col-sm-4 text-muted">Joined</dt><dd class="col-sm-8">{{ user.created_at }}</dd>
+          <dt class="col-sm-4 text-muted">Last Login</dt><dd class="col-sm-8">{{ user.last_login or '—' }}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

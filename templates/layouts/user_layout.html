@@ -1,0 +1,8 @@
+{% extends "layouts/app_layout.html" %}
+{% block navbar %}
+{% set sidebar_id = 'userSidebar' %}
+{% set home_url = url_for('dashboard.user_dashboard_page') %}
+{% set brand = 'ScamGuard AI' %}
+{% include "partials/app_topbar.html" %}
+{% endblock %}
+{% block sidebar %}{% include "partials/user_sidebar.html" %}{% endblock %}

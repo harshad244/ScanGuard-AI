@@ -1,0 +1,30 @@
+{% extends "layouts/admin_layout.html" %}
+{% block title %}ML Models{% endblock %}
+{% block app_content %}
+<h1 class="h3 fw-semibold mb-3">ML Models</h1>
+<div class="alert alert-info small">
+  Train models locally with <code>python models/train_models.py</code>, then update accuracy in the database if needed.
+</div>
+<div class="card shadow-sm">
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Version</th><th>Accuracy</th><th>Trained</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for m in models %}
+        <tr>
+          <td>{{ m.model_id }}</td>
+          <td>{{ m.model_name }}</td>
+          <td>{{ m.model_type }}</td>
+          <td>{{ m.version }}</td>
+          <td>{{ m.accuracy if m.accuracy is not none else '—' }}</td>
+          <td>{{ m.trained_date or '—' }}</td>
+          <td>{{ m.status }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" class="text-muted text-center py-4">No model records.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

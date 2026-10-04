@@ -1,0 +1,31 @@
+<aside class="app-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="adminSidebar">
+  <div class="offcanvas-header d-lg-none">
+    <h5 class="offcanvas-title">Admin Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#adminSidebar"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <nav class="sidebar-nav">
+      <a class="sidebar-link {% if request.endpoint == 'admin.admin_dashboard_page' %}active{% endif %}" href="{{ url_for('admin.admin_dashboard_page') }}">
+        <i class="fa-solid fa-shield-halved"></i> Dashboard
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'admin.users_page' %}active{% endif %}" href="{{ url_for('admin.users_page') }}">
+        <i class="fa-solid fa-users"></i> Users
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'admin.scans_page' %}active{% endif %}" href="{{ url_for('admin.scans_page') }}">
+        <i class="fa-solid fa-list-check"></i> Scan Records
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'admin.reports_page' %}active{% endif %}" href="{{ url_for('admin.reports_page') }}">
+        <i class="fa-solid fa-chart-pie"></i> Reports
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'admin.models_page' %}active{% endif %}" href="{{ url_for('admin.models_page') }}">
+        <i class="fa-solid fa-brain"></i> ML Models
+      </a>
+      <form method="post" action="{{ url_for('auth.logout_page') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="sidebar-link w-100 border-0 bg-transparent text-start" type="submit">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </div>
+</aside>

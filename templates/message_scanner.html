@@ -1,0 +1,42 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}Message Scanner{% endblock %}
+{% block app_content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm scanner-card">
+      <div class="card-body p-4">
+        <h1 class="h4 fw-semibold mb-1">Scam Message Detector</h1>
+        <p class="text-muted small mb-4">Paste SMS, email, or chat content for NLP-based analysis.</p>
+        <div id="scanAlert" class="alert d-none" role="alert"></div>
+        <form id="messageScanForm">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <div class="mb-3">
+            <label for="message" class="form-label">Suspicious message</label>
+            <textarea class="form-control" id="message" name="message" rows="8" placeholder="Paste your suspicious message here..." required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="message_type" class="form-label">Message type (optional)</label>
+            <select class="form-select" id="message_type" name="message_type">
+              <option value="general">General</option>
+              <option value="sms">SMS</option>
+              <option value="email">Email</option>
+              <option value="whatsapp">WhatsApp / Chat</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-100" id="messageScanBtn">
+            <span class="btn-label">Analyze Message</span>
+          </button>
+        </form>
+        <div id="scanLoading" class="scan-loading d-none mt-4 text-center" aria-live="polite">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2 mb-0 text-muted">Analyzing input...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+<script>Scanner.initMessageScanner();</script>
+{% endblock %}

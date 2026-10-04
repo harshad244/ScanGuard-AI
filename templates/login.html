@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card auth-card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="h4 fw-semibold mb-3">Login</h1>
+        <div id="authAlert" class="alert d-none" role="alert"></div>
+        <form id="loginForm" novalidate>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn btn-primary w-100" id="loginBtn">Login</button>
+        </form>
+        <p class="small text-muted mt-3 mb-0">No account? <a href="{{ url_for('auth.register_page') }}">Register</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('loginBtn');
+  AppAuth.submitAuth('/api/login', {
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value
+  }, btn);
+});
+</script>
+{% endblock %}

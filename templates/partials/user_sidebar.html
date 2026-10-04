@@ -1,0 +1,31 @@
+<aside class="app-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="userSidebar">
+  <div class="offcanvas-header d-lg-none">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#userSidebar"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <nav class="sidebar-nav">
+      <a class="sidebar-link {% if request.endpoint == 'dashboard.user_dashboard_page' %}active{% endif %}" href="{{ url_for('dashboard.user_dashboard_page') }}">
+        <i class="fa-solid fa-gauge-high"></i> Dashboard
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'scanner.url_scanner_page' %}active{% endif %}" href="{{ url_for('scanner.url_scanner_page') }}">
+        <i class="fa-solid fa-link"></i> URL Scanner
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'scanner.message_scanner_page' %}active{% endif %}" href="{{ url_for('scanner.message_scanner_page') }}">
+        <i class="fa-solid fa-comment-dots"></i> Message Scanner
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'dashboard.history_page' %}active{% endif %}" href="{{ url_for('dashboard.history_page') }}">
+        <i class="fa-solid fa-clock-rotate-left"></i> Scan History
+      </a>
+      <a class="sidebar-link {% if request.endpoint == 'auth.profile_page' %}active{% endif %}" href="{{ url_for('auth.profile_page') }}">
+        <i class="fa-solid fa-user"></i> Profile
+      </a>
+      <form method="post" action="{{ url_for('auth.logout_page') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="sidebar-link w-100 border-0 bg-transparent text-start" type="submit">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,89 @@
+{% extends "layouts/admin_layout.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block extra_head %}<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>{% endblock %}
+{% block app_content %}
+<h1 class="h3 fw-semibold mb-4">Admin Dashboard</h1>
+<div class="row g-3 mb-4">
+  {% for label, value, cls in [
+    ('Total Users', stats.total_users, 'kpi-neutral'),
+    ('Total Scans', stats.total_scans, 'kpi-neutral'),
+    ('Safe Scans', stats.safe, 'kpi-safe'),
+    ('Suspicious', stats.suspicious, 'kpi-warn'),
+    ('Scam / Phishing', stats.scam, 'kpi-danger')
+  ] %}
+  <div class="col-6 col-xl">
+    <div class="card kpi-card {{ cls }} h-100"><div class="card-body">
+      <p class="text-muted small mb-1">{{ label }}</p>
+      <p class="h4 fw-bold mb-0">{{ value }}</p>
+    </div></div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-6">
+    <div class="card shadow-sm h-100"><div class="card-body">
+      <h2 class="h6 fw-semibold">Detection Distribution</h2>
+      <canvas id="adminResultChart" height="200"></canvas>
+    </div></div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm h-100"><div class="card-body">
+      <h2 class="h6 fw-semibold">Recent Activity</h2>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead><tr><th>ID</th><th>User</th><th>Type</th><th>Result</th><th>Date</th></tr></thead>
+          <tbody>
+            {% for s in recent %}
+            <tr>
+              <td>#{{ s.scan_id }}</td>
+              <td>{{ s.name }}</td>
+              <td>{{ s.input_type }}</td>
+              <td><span class="badge result-badge result-{{ s.result|lower }}">{{ s.result }}</span></td>
+              <td class="small">{{ s.scan_date }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5" class="text-muted">No scans yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h6 fw-semibold mb-3">ML Model Information</h2>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead><tr><th>Name</th><th>Type</th><th>Version</th><th>Accuracy</th><th>Status</th></tr></thead>
+        <tbody>
+          {% for m in models %}
+          <tr>
+            <td>{{ m.model_name }}</td>
+            <td>{{ m.model_type }}</td>
+            <td>{{ m.version }}</td>
+            <td>{{ m.accuracy if m.accuracy is not none else '—' }}</td>
+            <td>{{ m.status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script>
+(async function(){
+  const res = await fetch('/api/admin/reports');
+  if(!res.ok) return;
+  const data = await res.json();
+  const labels = (data.by_result||[]).map(x=>x.result);
+  const values = (data.by_result||[]).map(x=>x.cnt);
+  const colors = labels.map(l => l==='SAFE'?'#198754': l==='SUSPICIOUS'?'#fd7e14':'#dc3545');
+  new Chart(document.getElementById('adminResultChart'), {type:'doughnut', data:{labels, datasets:[{data:values, backgroundColor:colors}]}, options:{plugins:{legend:{position:'bottom'}}}});
+})();
+</script>
+{% endblock %}

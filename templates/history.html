@@ -1,0 +1,71 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}Scan History{% endblock %}
+{% block app_content %}
+<h1 class="h3 fw-semibold mb-3">Scan History</h1>
+<div class="card shadow-sm mb-3">
+  <div class="card-body">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <label class="form-label small" for="historySearch">Search</label>
+        <input type="search" id="historySearch" class="form-control" placeholder="Search input or reason">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label small" for="filterResult">Result</label>
+        <select id="filterResult" class="form-select">
+          <option value="">All</option>
+          <option value="SAFE">SAFE</option>
+          <option value="SUSPICIOUS">SUSPICIOUS</option>
+          <option value="SCAM">SCAM</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label small" for="filterType">Input Type</label>
+        <select id="filterType" class="form-select">
+          <option value="">All</option>
+          <option value="url">URL</option>
+          <option value="message">Message</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label small" for="sortDate">Sort</label>
+        <select id="sortDate" class="form-select">
+          <option value="desc">Newest</option>
+          <option value="asc">Oldest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle" id="historyTable">
+        <thead>
+          <tr>
+            <th>ID</th><th>Type</th><th>Preview</th><th>Result</th><th>Score</th><th>Level</th><th>Date</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="historyBody">
+          <tr><td colspan="8" class="text-center text-muted py-4">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="fullMessageModal" tabindex="-1" aria-labelledby="fullMessageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="fullMessageModalLabel">Full Input</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"><pre id="fullMessageContent" class="mb-0 small"></pre></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+{% endblock %}

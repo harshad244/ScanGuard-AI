@@ -1,0 +1,33 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}URL Scanner{% endblock %}
+{% block app_content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm scanner-card">
+      <div class="card-body p-4">
+        <h1 class="h4 fw-semibold mb-1">Phishing URL Scanner</h1>
+        <p class="text-muted small mb-4">URLs are analyzed as data only — we never visit or download from suspicious links.</p>
+        <div id="scanAlert" class="alert d-none" role="alert"></div>
+        <form id="urlScanForm">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <div class="mb-3">
+            <label for="url" class="form-label">Enter a URL</label>
+            <input type="url" class="form-control form-control-lg" id="url" name="url" placeholder="https://example.com" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-100" id="urlScanBtn">
+            <span class="btn-label">Analyze URL</span>
+          </button>
+        </form>
+        <div id="scanLoading" class="scan-loading d-none mt-4 text-center" aria-live="polite">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2 mb-0 text-muted">Analyzing input...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+<script>Scanner.initUrlScanner();</script>
+{% endblock %}

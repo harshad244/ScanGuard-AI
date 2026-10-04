@@ -1,0 +1,90 @@
+{% extends "layouts/user_layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block extra_head %}<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>{% endblock %}
+{% block app_content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+  <div>
+    <h1 class="h3 fw-semibold mb-1">Dashboard</h1>
+    <p class="text-muted mb-0">Overview of your scan activity</p>
+  </div>
+  <div class="d-flex flex-wrap gap-2">
+    <a href="{{ url_for('scanner.url_scanner_page') }}" class="btn btn-primary"><i class="fa-solid fa-link me-1"></i> Scan URL</a>
+    <a href="{{ url_for('scanner.message_scanner_page') }}" class="btn btn-outline-primary"><i class="fa-solid fa-comment me-1"></i> Scan Message</a>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  {% for label, value, icon, cls in [
+    ('Total Scans', stats.total, 'fa-magnifying-glass-chart', 'kpi-neutral'),
+    ('Safe Scans', stats.safe, 'fa-circle-check', 'kpi-safe'),
+    ('Suspicious Scans', stats.suspicious, 'fa-triangle-exclamation', 'kpi-warn'),
+    ('Scam / Phishing', stats.scam, 'fa-skull-crossbones', 'kpi-danger')
+  ] %}
+  <div class="col-6 col-xl-3">
+    <div class="card kpi-card {{ cls }} h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <p class="text-muted small mb-1">{{ label }}</p>
+            <p class="h3 fw-bold mb-0">{{ value }}</p>
+          </div>
+          <i class="fa-solid {{ icon }} kpi-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-5">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h2 class="h6 fw-semibold">Scan Result Distribution</h2>
+        <canvas id="resultChart" height="220" aria-label="Scan result distribution chart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h2 class="h6 fw-semibold">Scan Activity (Last 14 Days)</h2>
+        <canvas id="activityChart" height="220" aria-label="Scan activity chart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h6 fw-semibold mb-3">Recent Scans</h2>
+    {% if recent %}
+    <div class="table-responsive">
+      <table class="table table-sm align-middle mb-0">
+        <thead><tr><th>ID</th><th>Type</th><th>Preview</th><th>Result</th><th>Score</th><th>Date</th></tr></thead>
+        <tbody>
+          {% for s in recent %}
+          <tr>
+            <td><a href="{{ url_for('scanner.result_page', scan_id=s.scan_id) }}">#{{ s.scan_id }}</a></td>
+            <td>{{ s.input_type|upper }}</td>
+            <td class="text-truncate" style="max-width:180px">{{ s.input_preview }}</td>
+            <td><span class="badge result-badge result-{{ s.result|lower }}">{{ s.result }}</span></td>
+            <td>{{ s.risk_score }}/100</td>
+            <td class="small text-muted">{{ s.scan_date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="empty-state text-center py-4">
+      <i class="fa-regular fa-folder-open fa-2x text-muted mb-2"></i>
+      <p class="mb-0 text-muted">No scans yet. Start with a URL or message scan.</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

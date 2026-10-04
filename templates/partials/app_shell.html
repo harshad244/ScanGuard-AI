@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block body_class %}app-shell{% endblock %}
+{% block layout %}
+<div class="app-wrapper d-flex">
+  <aside class="app-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="appSidebar">
+    <div class="offcanvas-header d-lg-none">
+      <span class="fw-semibold">Menu</span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#appSidebar"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <div class="sidebar-brand px-3 py-3 border-bottom d-none d-lg-block">
+        <a href="{{ url_for('index') }}" class="text-decoration-none text-dark fw-semibold">
+          <i class="fa-solid fa-shield-halved text-primary me-2"></i>ScamGuard AI
+        </a>
+      </div>
+      <nav class="nav flex-column sidebar-nav p-2">
+        {% if is_admin %}
+        <a class="nav-link" href="{{ url_for('admin.admin_dashboard_page') }}"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+        <a class="nav-link" href="{{ url_for('admin.users_page') }}"><i class="fa-solid fa-users me-2"></i>Users</a>
+        <a class="nav-link" href="{{ url_for('admin.scans_page') }}"><i class="fa-solid fa-list-check me-2"></i>Scan Records</a>
+        <a class="nav-link" href="{{ url_for('admin.reports_page') }}"><i class="fa-solid fa-chart-line me-2"></i>Reports</a>
+        <a class="nav-link" href="{{ url_for('admin.models_page') }}"><i class="fa-solid fa-brain me-2"></i>ML Models</a>
+        {% else %}
+        <a class="nav-link" href="{{ url_for('dashboard.user_dashboard_page') }}"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+        <a class="nav-link" href="{{ url_for('scanner.url_scanner_page') }}"><i class="fa-solid fa-link me-2"></i>URL Scanner</a>
+        <a class="nav-link" href="{{ url_for('scanner.message_scanner_page') }}"><i class="fa-solid fa-message me-2"></i>Message Scanner</a>
+        <a class="nav-link" href="{{ url_for('dashboard.history_page') }}"><i class="fa-solid fa-clock-rotate-left me-2"></i>Scan History</a>
+        <a class="nav-link" href="{{ url_for('auth.profile_page') }}"><i class="fa-solid fa-user me-2"></i>Profile</a>
+        {% endif %}
+        <hr class="my-2">
+        <form method="post" action="{{ url_for('auth.logout_page') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="nav-link text-danger w-100 text-start" type="submit"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+        </form>
+      </nav>
+    </div>
+  </aside>
+  <div class="app-content flex-grow-1 d-flex flex-column min-vh-100">
+    <header class="app-topbar border-bottom bg-white px-3 py-2 d-flex align-items-center justify-content-between">
+      <button class="btn btn-outline-secondary btn-sm d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#appSidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="ms-auto small text-muted">
+        {% if current_user_name %}Hello, {{ current_user_name }}{% endif %}
+      </div>
+    </header>
+    <main class="flex-grow-1 p-3 p-lg-4">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show">{{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}

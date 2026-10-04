@@ -1,0 +1,17 @@
+{% extends "layouts/admin_layout.html" %}
+{% block title %}Scan Records{% endblock %}
+{% block app_content %}
+<h1 class="h3 fw-semibold mb-3">Scan Monitoring</h1>
+<div class="card shadow-sm">
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0 align-middle">
+      <thead><tr><th>ID</th><th>User</th><th>Type</th><th>Preview</th><th>Result</th><th>Score</th><th>Date</th></tr></thead>
+      <tbody id="adminScansBody"><tr><td colspan="7" class="text-center py-4 text-muted">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+<script>AdminScans.init();</script>
+{% endblock %}
