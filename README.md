@@ -10,6 +10,10 @@ cd "C:\Users\Harshad Teli\Downloads\AI_SCAM"
 
 > **Disclaimer:** Detection results are AI-based predictions and decision-support signals. They are **not** a guarantee of website or message safety.
 
+<center><img src="s1.png"/></center>
+<hr>
+<center><img src="2s.png"/></center>
+
 ## Features
 
 - Phishing URL scanner with URL feature extraction (no automatic visiting of URLs)
